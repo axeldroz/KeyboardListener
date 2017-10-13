@@ -1,0 +1,15 @@
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_VERBOSE_MAKEFILE 1)
+cmake_minimum_required(VERSION 3.9)
+project(KBHook)
+include_directories(include/dll)
+set(SOURCE_HKBHOOK_FILES src/dll/IziHook.cpp include/dll/IziHook.hh src/dll/launchDLL.cpp)
+add_library(KBHook SHARED ${SOURCE_HKBHOOK_FILES})
+
+project(KeyboardListener)
+set(SOURCE_KEYBOARDLISTENER_FILES src/dll/KeyboardListener.cpp include/dll/KeyboardListener.hh)
+add_library(KeyboardListener SHARED ${SOURCE_KEYBOARDLISTENER_FILES})
+
+project(laucherDLL)
+set(SOURCE_LAUNCHERDLL_FILES src/dll/launchDLL.cpp)
+add_executable(launcherDLL ${SOURCE_LAUNCHERDLL_FILES})
